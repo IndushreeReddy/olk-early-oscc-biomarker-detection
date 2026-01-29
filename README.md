@@ -5,7 +5,7 @@
 Oral squamous cell carcinoma (OSCC) accounts for the majority of oral cancers and is often diagnosed at advanced stages. Oral leukoplakia (OLK) is the most common oral potentially malignant disorder and is widely recognised as a marker of increased oral cancer risk. Recent evidence suggests that oral microbiome dysbiosis may contribute to carcinogenesis through inflammation, immune modulation, and carcinogenic metabolites.
 
 This project investigates whether oral microbiome profiles from non-invasive oral swabs can be used to distinguish Healthy vs Pre-cancerous (OLK) samples using:
-* 16S rRNA (V1–V2) sequencing analysis with QIIME2
+* 16S rRNA (V1-V2) sequencing analysis with QIIME2
 * statistical analysis + visualisation in Python
 * machine learning classifiers (Logistic Regression, Random Forest) for prediction and biomarker discovery
 
@@ -69,7 +69,7 @@ Data/Raw_data/SRR.txt
 ```
 
 ## **Pipeline Summary**
-### 1) QIIME2 processing - Microbiome preprocessing and diversity analysis were performed using QIIME2:
+### 1) Microbiome preprocessing and diversity analysis using QIIME2:
 - Import + demultiplex summary
 - DADA2 denoising (single-end)
 - Only forward reads were used due to reverse read quality
@@ -87,14 +87,13 @@ Pipeline script:
 qiime2_pipeline.sh
 ```
 
-### 2) Statistical analysis (Python) - Downstream analysis was conducted in Python using exported genus-level tables:
-- Relative abundance processing
+### 2) Statistical analysis (Python):
 - PCA for global variability visualisation
 - Heatmap of top variable genera
 - Variance-based ranking of microbial genera
 - Mean abundance comparisons across conditions
 
-### 3) Machine learning (Python / scikit-learn) - Genus-level microbiome features were used to train supervised classifiers:
+### 3) Machine learning (Python / scikit-learn):
 - Logistic Regression
 - Random Forest
 - Train-test split: 80/20 stratified
@@ -112,8 +111,13 @@ Statistical_analysis_and_ML.ipynb
 ## **How to Reproduce**
 ### 1. Full reproducibility (starting from raw sequencing data)
 - Download sequencing reads from NCBI SRA:
+
 Project: PRJNA292477
-SRR list: Data/Raw_data/SRR.txt
+
+SRR list: 
+```
+Data/Raw_data/SRR.txt
+```
 - Run QIIME2 workflow:
 ```
 bash qiime2_pipeline.sh
